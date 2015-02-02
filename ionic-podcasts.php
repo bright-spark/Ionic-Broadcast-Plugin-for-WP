@@ -1,8 +1,8 @@
 <?php
 /**
-Plugin Name: Ionic Podcasts RSS
+Plugin Name: Ionic Broadcast Plugin
 Description: Create media and iTunes compatible RSS feeds.
-Version: 1.0
+Version: 1.2
 **/
 
 add_image_size( 'itunes-album', 2048, 2048, true );
@@ -21,13 +21,13 @@ function media_podcast_json(){
 }
 
 function ionic_podcast_rss(){
-  require_once( dirname( __FILE__ ) . '/podcast-rss-template.php' );
+  require_once( dirname( __FILE__ ) . '/podcasts/podcast-rss-template.php' );
 }
 function ionic_media_podcast_rss(){
-  require_once( dirname( __FILE__ ) . '/media-rss-template.php' );
+  require_once( dirname( __FILE__ ) . '/podcasts/media-rss-template.php' );
 }
 function ionic_media_podcast_json(){
-  require_once( dirname( __FILE__ ) . '/media-json-feed.php' );
+  require_once( dirname( __FILE__ ) . '/podcasts/media-json-feed.php' );
 }
 
 function ionic_podcasts_cpt() {
@@ -77,8 +77,8 @@ add_action('init', 'register_idp_resources');
 add_action('wp_footer', 'print_idp_resources');
 
 function register_idp_resources() {
-	wp_register_script('idpPlayer-script', plugins_url('idpPlayer.js', __FILE__), array('jquery'), '1.0', true);
-	wp_register_style('idpPlayer-style', plugins_url('player.css', __FILE__));
+	wp_register_script('idpPlayer-script', plugins_url('player/idpPlayer.js', __FILE__), array('jquery'), '1.0', true);
+	wp_register_style('idpPlayer-style', plugins_url('player/idpPlayer.css', __FILE__));
 }
 
 function print_idp_resources() {
