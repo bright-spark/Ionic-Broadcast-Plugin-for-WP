@@ -12,7 +12,8 @@
 				'<span class="idp_player-time_display"><span class="idp_player-current_time">00:00:00</span>/<span class="idp_player-duration">00:00:00</span></span>'+
 				'<div style="">&nbsp;</div>'+
 				//'<div class="idp_player-control_button"><span class="idp_player-button idp_player-mute_button idp-icon-volume-up" data-activity="mute"></span></div>'+
-				'<div class="idp_player-control_button"><span class="idp_player-button idp_player-skip_button idp-icon-fast-fw" data-activity="skip"></span></div>'+
+				'<div class="idp_player-control_button"><span class="idp_player-button idp_player-skipBack_button idp-icon-fast-bw" data-activity="skipBack"></span></div>'+
+				'&nbsp;<div class="idp_player-control_button"><span class="idp_player-button idp_player-skip_button idp-icon-fast-fw" data-activity="skip"></span></div>'+
 			'</div><div class="idp_player-playlist_display idp_player-extras_display">Unable to load the playlist!</div>'+
 			'<div class="idp_player-live_display idp_player-extras_display">'+
 				'<p class="idp_player-live_text">Listen Live:</p>'+
@@ -111,6 +112,8 @@
 					toggleMute(button);
 				}else if(activity==="skip"){
 					skipAhead(30);
+				}else if(activity==="skipBack"){
+					skipAhead(-10);
 				}else if(activity==="playlist"){
 					var opening = button.hasClass('pressed') ? false : true;
 					elements.buttons.removeClass('pressed');
